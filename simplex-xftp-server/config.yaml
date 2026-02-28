@@ -1,0 +1,31 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: SimpleX XFTP Server
+version: "6.5.0-3"
+slug: simplex-xftp-server
+description: Host a SimpleX XFTP file transfer server on Home Assistant.
+url: "https://github.com/ed-asriyan/hassio-simplex"
+arch:
+  - aarch64
+  - amd64
+init: false
+map:
+  - type: data
+    read_only: false
+ports:
+  443/tcp: null
+ports_description:
+  443/tcp: XFTP server — must be the same value as the 'port' option
+options:
+  addr: ""
+  port: 443
+  quota: "10gb"
+  expire_files_hours: 48
+  new_files: true
+schema:
+  addr: str
+  port: int
+  quota: str
+  pass: str?
+  expire_files_hours: int
+  new_files: bool
+image: "ghcr.io/ed-asriyan/hassio-simplex-xftp-server-{arch}"
