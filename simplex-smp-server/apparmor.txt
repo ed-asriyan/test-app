@@ -1,0 +1,40 @@
+#include <tunables/global>
+
+profile example flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+
+  # Capabilities
+  file,
+  signal (send) set=(kill,term,int,hup,cont),
+
+  # Binaries
+  /bin/** ix,
+  /usr/bin/** ix,
+  /usr/local/bin/** ix,
+  /lib/** r,
+  /usr/lib/** r,
+  /lib/aarch64-linux-gnu/** mr,
+  /usr/lib/aarch64-linux-gnu/** mr,
+  /lib/x86_64-linux-gnu/** mr,
+  /usr/lib/x86_64-linux-gnu/** mr,
+
+  # Runtime
+  /run/{,**} rwk,
+  /tmp/** rwk,
+  /dev/tty rw,
+  /dev/null rw,
+
+  # Addon data (options.json + persistent storage)
+  /data/** rw,
+
+  # smp-server data directories (symlinked to /data)
+  /etc/opt/simplex/** rw,
+  /var/opt/simplex/** rw,
+
+  # Entrypoint and system reads
+  /entrypoint.sh r,
+  /etc/ssl/certs/** r,
+  /etc/resolv.conf r,
+  /etc/hosts r,
+  /proc/sys/kernel/hostname r,
+}
