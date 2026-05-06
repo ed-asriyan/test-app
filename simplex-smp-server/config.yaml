@@ -31,4 +31,4 @@ schema:
   restore_messages: bool
   expire_messages_days: int
   expire_ntfs_hours: int
-image: "ghcr.io/ed-asriyan/hassio-simplex-smp-server-{arch}"
+image: "ghcr.io/ed-asriyan/hassio-simplex-smp-server"
