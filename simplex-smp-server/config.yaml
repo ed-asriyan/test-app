@@ -2,8 +2,8 @@
 name: SimpleX SMP Server
 version: "6.5.0-beta.8"
 slug: simplex-smp-server
-description: Host a SimpleX SMP server on Home Assistant.
-url: "https://github.com/ed-asriyan/hassio-simplex"
+description: Message relay server for SimpleX Chat
+url: "https://github.com/ed-asriyan/hassio-simplex/tree/master/simplex-smp-server"
 arch:
   - aarch64
   - amd64

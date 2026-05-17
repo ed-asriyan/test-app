@@ -2,8 +2,8 @@
 name: SimpleX XFTP Server
 version: "6.5.0"
 slug: simplex-xftp-server
-description: Host a SimpleX XFTP file transfer server on Home Assistant.
-url: "https://github.com/ed-asriyan/hassio-simplex"
+description: End-to-end encrypted file relay for SimpleX Chat
+url: "https://github.com/ed-asriyan/hassio-simplex/tree/master/simplex-xftp-server"
 arch:
   - aarch64
   - amd64
