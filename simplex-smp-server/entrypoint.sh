@@ -38,7 +38,11 @@ FINGERPRINT=$(cat "${CONFIG_DIR}/fingerprint" 2>/dev/null || true)
 if [ -n "$FINGERPRINT" ]; then
     echo "=========================================="
     echo "SMP server address:"
-    echo "smp://${FINGERPRINT}@${ADDR}:${PORT}"
+    if [ -n "$PASS" ]; then
+        echo "smp://${FINGERPRINT}:${PASS}@${ADDR}:${PORT}"
+    else
+        echo "smp://${FINGERPRINT}@${ADDR}:${PORT}"
+    fi
     echo "=========================================="
 fi
 

@@ -42,7 +42,11 @@ FINGERPRINT=$(cat "${CONFIG_DIR}/fingerprint" 2>/dev/null || true)
 if [ -n "$FINGERPRINT" ]; then
     echo "=========================================="
     echo "XFTP server address:"
-    echo "xftp://${FINGERPRINT}@${ADDR}:${PORT}"
+    if [ -n "$PASS" ]; then
+        echo "xftp://${FINGERPRINT}:${PASS}@${ADDR}:${PORT}"
+    else
+        echo "xftp://${FINGERPRINT}@${ADDR}:${PORT}"
+    fi
     echo "=========================================="
 fi
 
